@@ -15,3 +15,7 @@ t2.micro (Free Tier)
 
 ## Purpose
 This EC2 instance was used to deploy Jenkins for hands-on learning.
+
+### EC2 Instance Running
+
+![EC2 Running](../screenshots/ec2-instance-running.png)
