@@ -1,1 +1,75 @@
+# Troubleshooting Jenkins on EC2 (Terminal Only)
+
+This document covers common Jenkins and EC2 issues and their fixes using terminal commands only.
+
+Jenkins service not running:
+Check status:
+sudo systemctl status jenkins
+Start Jenkins:
+sudo systemctl start jenkins
+Restart Jenkins:
+sudo systemctl restart jenkins
+Enable Jenkins on reboot:
+sudo systemctl enable jenkins
+
+Jenkins not opening on port 8080:
+Check if Jenkins is listening on port 8080:
+sudo netstat -tulnp | grep 8080
+OR
+sudo ss -tulnp | grep 8080
+If no output appears, Jenkins is not running properly.
+
+Java not found or Jenkins fails to start:
+Check Java version:
+java -version
+Install Java on Amazon Linux:
+sudo yum install java-11-amazon-corretto -y
+Install Java on Ubuntu:
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+Verify Java installation:
+java -version
+
+SSH permission denied or connection issue:
+Check current user:
+whoami
+Correct usernames:
+Amazon Linux -> ec2-user
+Ubuntu -> ubuntu
+Fix key file permission on local machine:
+chmod 400 jenkins-key.pem
+
+Jenkins service fails to start:
+Check Jenkins logs:
+sudo journalctl -u jenkins --no-pager
+Check live logs:
+sudo journalctl -u jenkins -f
+
+Permission denied errors inside Jenkins:
+Check file permissions:
+ls -l
+Fix execute permission:
+chmod +x filename.sh
+Fix Jenkins directory ownership:
+sudo chown -R jenkins:jenkins /var/lib/jenkins
+
+Disk or memory issue:
+Check disk usage:
+df -h
+Check memory usage:
+free -h
+
+Jenkins not starting after reboot:
+Start Jenkins manually:
+sudo systemctl start jenkins
+Enable Jenkins at boot:
+sudo systemctl enable jenkins
+
+Most commonly used troubleshooting commands:
+sudo systemctl status jenkins
+sudo systemctl start jenkins
+sudo systemctl restart jenkins
+sudo journalctl -u jenkins
+java -version
+df -h
 
