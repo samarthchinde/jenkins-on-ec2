@@ -1,5 +1,3 @@
-# jenkins-on-ec2
-Step-by-step Jenkins installation and setup on AWS EC2, covering Linux, Java, and SSH.
 # Jenkins on EC2
 
 This repository documents the complete step-by-step process of setting up Jenkins on an AWS EC2 instance.
