@@ -51,5 +51,5 @@ Common Issues:
 Result:
 Secure SSH access to the EC2 instance is established successfully. The server is now ready for Java and Jenkins installation.
 
-![ssh-connction](screenshorts/ssh-connection.png)
+![ssh-connction](../screenshorts/ssh-connection.png)
 
